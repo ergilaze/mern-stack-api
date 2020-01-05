@@ -3,7 +3,8 @@ require('dotenv').config();
 const MongoClient = require('mongodb').MongoClient;
 const uri = process.env.MONGODB_URI;
 
-exports.findUsers = (res) => {
+// Get all users
+exports.getUsers = (res) => {
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     try {
         client.connect(err => {
@@ -31,6 +32,7 @@ exports.findUsers = (res) => {
     }
 }
 
+// Add new user
 exports.addUsers = (user, res) => {
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     try {
